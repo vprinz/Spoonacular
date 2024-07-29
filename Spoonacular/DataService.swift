@@ -20,7 +20,7 @@ struct DataService {
         return mealTypes
     }
     
-    func searchRecipes() async -> [Recipe] {
+    func searchRecipes(type: String?) async -> [Recipe] {
         guard apiKey != nil else {
             return [Recipe]()
         }
@@ -30,6 +30,10 @@ struct DataService {
             URLQueryItem(name: "apiKey", value: "\(apiKey!)"),
             URLQueryItem(name: "includeNutrition", value: "true")
         ]
+        
+        if let type = type {
+            urlComponents.queryItems?.append(URLQueryItem(name: "type", value: "\(type)"))
+        }
         
         let url = urlComponents.url!
         let request = URLRequest(url: url)

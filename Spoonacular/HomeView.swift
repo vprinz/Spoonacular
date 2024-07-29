@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @State var query = ""
     @State var mealTypes = [String]()
+    @State var selectedType = ""
     @State var recipes = [Recipe]()
     @State var selectedRecipe: Recipe?
     
@@ -35,14 +36,21 @@ struct HomeView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(mealTypes, id: \.self) { type in
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 40)
-                                .foregroundColor(Color(red: 112/255, green: 185/255, blue: 190/255))
-                                .frame(height: 44)
-                            Text(type.capitalized)
-                                .foregroundStyle(.white)
-                                .padding(.horizontal, 24)
-                                .bold()
+                        Button {
+                            selectedType = type
+                            Task {
+                                recipes = await service.searchRecipes(type: selectedType)
+                            }
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 40)
+                                    .foregroundColor(Color(red: 112/255, green: 185/255, blue: 190/255))
+                                    .frame(height: 44)
+                                Text(type.capitalized)
+                                    .foregroundStyle(.white)
+                                    .padding(.horizontal, 24)
+                                    .bold()
+                            }
                         }
                     }
                 }
@@ -99,7 +107,7 @@ struct HomeView: View {
         .onAppear {
             mealTypes = service.getListMealType()
             Task {
-                recipes = await service.searchRecipes()
+                recipes = await service.searchRecipes(type: nil)
             }
         }
         .sheet(item: $selectedRecipe) { item in
