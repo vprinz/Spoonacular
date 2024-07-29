@@ -15,6 +15,7 @@
 		1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8C72C565C55004AB837 /* DataModel.swift */; };
 		1B47C8CC2C57BD03004AB837 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */; };
 		1B47C8CE2C57F53F004AB837 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8CD2C57F53F004AB837 /* RecipeModel.swift */; };
+		1B47C8D22C5808DC004AB837 /* NutrientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8D12C5808DC004AB837 /* NutrientCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		1B47C8CA2C57AC34004AB837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		1B47C8CD2C57F53F004AB837 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		1B47C8D12C5808DC004AB837 /* NutrientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				1B47C8B72C563B39004AB837 /* SpoonacularApp.swift */,
 				1B47C8B92C563B39004AB837 /* HomeView.swift */,
 				1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */,
+				1B47C8D12C5808DC004AB837 /* NutrientCardView.swift */,
 				1B47C8CD2C57F53F004AB837 /* RecipeModel.swift */,
 				1B47C8C52C565C45004AB837 /* DataService.swift */,
 				1B47C8C72C565C55004AB837 /* DataModel.swift */,
@@ -158,6 +161,7 @@
 				1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */,
 				1B47C8BA2C563B39004AB837 /* HomeView.swift in Sources */,
 				1B47C8B82C563B39004AB837 /* SpoonacularApp.swift in Sources */,
+				1B47C8D22C5808DC004AB837 /* NutrientCardView.swift in Sources */,
 				1B47C8CE2C57F53F004AB837 /* RecipeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

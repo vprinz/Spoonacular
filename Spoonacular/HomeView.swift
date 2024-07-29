@@ -116,7 +116,7 @@ struct HomeView: View {
             recipeModel.getRecipes(query: nil, type: nil)
         }
         .sheet(item: $bindableRecipeModel.selectedRecipe) { item in
-            RecipeDetailView(recipe: item)
+            RecipeDetailView()
         }
     }
 }

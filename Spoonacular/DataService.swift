@@ -27,8 +27,7 @@ struct DataService {
         
         var urlComponents = URLComponents(string: "https://api.spoonacular.com/recipes/complexSearch")!
         urlComponents.queryItems = [
-            URLQueryItem(name: "apiKey", value: "\(apiKey!)"),
-            URLQueryItem(name: "includeNutrition", value: "true")
+            URLQueryItem(name: "apiKey", value: "\(apiKey!)")
         ]
         
         if let query = query {
@@ -55,5 +54,34 @@ struct DataService {
         }
         
         return [Recipe]()
+    }
+    
+    func getRecipeInformation(id: Int) async -> RecipeInformation? {
+        guard apiKey != nil else {
+            return nil
+        }
+        
+        var urlComponents = URLComponents(string: "https://api.spoonacular.com/recipes/\(id)/information")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "apiKey", value: "\(apiKey!)"),
+            URLQueryItem(name: "includeNutrition", value: "true")
+        ]
+        
+        let url = urlComponents.url!
+        let request = URLRequest(url: url)
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            
+            let decoder = JSONDecoder()
+            let recipesInformation = try decoder.decode(RecipeInformation.self, from: data)
+            
+            return recipesInformation
+        }
+        catch {
+            print(error)
+        }
+        
+        return nil
     }
 }

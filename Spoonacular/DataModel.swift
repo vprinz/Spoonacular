@@ -35,8 +35,8 @@ struct RecipeInformation: Identifiable, Decodable {
     let title: String
     let summary: String
     let readyInMinutes: Int
-    let extendedIngredients: [Dictionary<String, Ingredient>]
-    let nutrition: Dictionary<String, Nutrient>
+    let extendedIngredients: [Ingredient]
+    let nutrition: Nutrition?
 }
 
 
@@ -47,8 +47,13 @@ struct Ingredient: Identifiable, Decodable {
 
 
 struct Nutrient: Decodable {
-    var id = UUID()
     let name: String
     let amount: Double
     let unit: String
+    let percentOfDailyNeeds: Double
+}
+
+
+struct Nutrition: Decodable {
+    let nutrients: [Nutrient]
 }
