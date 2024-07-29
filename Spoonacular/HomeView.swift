@@ -11,9 +11,12 @@ struct HomeView: View {
     
     @State var query = ""
     @State var mealTypes = [String]()
-    @State var selectedType = ""
+    @State var selectedType = "main course"
     @State var recipes = [Recipe]()
     @State var selectedRecipe: Recipe?
+    
+    let selectedBtnColor = Color(red: 112/255, green: 185/255, blue: 190/255)
+    let unselectedBtnColor = Color(red: 241/255, green: 245/255, blue: 245/255)
     
     var service = DataService()
     
@@ -43,11 +46,13 @@ struct HomeView: View {
                             }
                         } label: {
                             ZStack {
+                                let color = selectedType == type ? selectedBtnColor : unselectedBtnColor
+                                let textColor = selectedType == type ? Color(.white) : Color(.black)
                                 RoundedRectangle(cornerRadius: 40)
-                                    .foregroundColor(Color(red: 112/255, green: 185/255, blue: 190/255))
+                                    .foregroundColor(color)
                                     .frame(height: 44)
                                 Text(type.capitalized)
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(textColor)
                                     .padding(.horizontal, 24)
                                     .bold()
                             }
