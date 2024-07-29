@@ -29,6 +29,11 @@ struct HomeView: View {
                 TextField("Search", text: $query)
                     .font(.system(size: 16))
                     .foregroundColor(Color(red: 151/255, green: 162/255, blue: 176/255))
+                    .onSubmit {
+                        Task {
+                            recipes = await service.searchRecipes(query: query, type: selectedType)
+                        }
+                    }
             }
             .frame(height: 54)
             .background(alignment: .center) {
@@ -42,7 +47,7 @@ struct HomeView: View {
                         Button {
                             selectedType = type
                             Task {
-                                recipes = await service.searchRecipes(type: selectedType)
+                                recipes = await service.searchRecipes(query: query, type: selectedType)
                             }
                         } label: {
                             ZStack {
@@ -112,7 +117,7 @@ struct HomeView: View {
         .onAppear {
             mealTypes = service.getListMealType()
             Task {
-                recipes = await service.searchRecipes(type: nil)
+                recipes = await service.searchRecipes(query: nil, type: nil)
             }
         }
         .sheet(item: $selectedRecipe) { item in
