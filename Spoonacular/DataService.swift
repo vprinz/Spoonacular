@@ -17,4 +17,11 @@ struct DataService {
         ]
         return mealTypes
     }
+    
+    func searchRecipes() -> [Recipe] {
+        return [
+            Recipe(id: 1, title: "Easy homemade beef burger", imageUrl: "burger"),
+            Recipe(id: 2, title: "Blueberry wuth egg for breakfast", imageUrl: "eggs")
+        ]
+    }
 }
