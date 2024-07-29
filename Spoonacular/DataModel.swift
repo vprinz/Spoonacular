@@ -8,6 +8,14 @@
 import Foundation
 
 
+struct RecipesResponse: Decodable {
+    let results: [Recipe]
+    let offset: Int
+    let number: Int
+    let totalResults: Int
+}
+
+
 struct Recipe: Identifiable, Decodable {
     let id: Int
     let title: String

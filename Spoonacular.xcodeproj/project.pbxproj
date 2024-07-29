@@ -13,6 +13,7 @@
 		1B47C8BF2C563B3B004AB837 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B47C8BE2C563B3B004AB837 /* Preview Assets.xcassets */; };
 		1B47C8C62C565C45004AB837 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8C52C565C45004AB837 /* DataService.swift */; };
 		1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8C72C565C55004AB837 /* DataModel.swift */; };
+		1B47C8CC2C57BD03004AB837 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,9 @@
 		1B47C8BE2C563B3B004AB837 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B47C8C52C565C45004AB837 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		1B47C8C72C565C55004AB837 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		1B47C8C92C57ABFB004AB837 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		1B47C8CA2C57AC34004AB837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +59,13 @@
 		1B47C8B62C563B39004AB837 /* Spoonacular */ = {
 			isa = PBXGroup;
 			children = (
+				1B47C8CA2C57AC34004AB837 /* Info.plist */,
 				1B47C8B72C563B39004AB837 /* SpoonacularApp.swift */,
 				1B47C8B92C563B39004AB837 /* HomeView.swift */,
+				1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */,
 				1B47C8C52C565C45004AB837 /* DataService.swift */,
 				1B47C8C72C565C55004AB837 /* DataModel.swift */,
+				1B47C8C92C57ABFB004AB837 /* Config.xcconfig */,
 				1B47C8BB2C563B3B004AB837 /* Assets.xcassets */,
 				1B47C8BD2C563B3B004AB837 /* Preview Content */,
 			);
@@ -144,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B47C8C62C565C45004AB837 /* DataService.swift in Sources */,
+				1B47C8CC2C57BD03004AB837 /* RecipeDetailView.swift in Sources */,
 				1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */,
 				1B47C8BA2C563B39004AB837 /* HomeView.swift in Sources */,
 				1B47C8B82C563B39004AB837 /* SpoonacularApp.swift in Sources */,
@@ -155,6 +163,7 @@
 /* Begin XCBuildConfiguration section */
 		1B47C8C02C563B3B004AB837 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B47C8C92C57ABFB004AB837 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -218,6 +227,7 @@
 		};
 		1B47C8C12C563B3B004AB837 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B47C8C92C57ABFB004AB837 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -282,6 +292,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Spoonacular/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Spoonacular/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -310,6 +321,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Spoonacular/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Spoonacular/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

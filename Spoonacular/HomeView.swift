@@ -12,6 +12,7 @@ struct HomeView: View {
     @State var query = ""
     @State var mealTypes = [String]()
     @State var recipes = [Recipe]()
+    @State var selectedRecipe: Recipe?
     
     var service = DataService()
     
@@ -60,8 +61,16 @@ struct HomeView: View {
                                     .frame(height: 100)
                                     .foregroundColor(Color(red: 251/255, green: 251/255, blue: 251/255))
                                 HStack {
-                                    Image(recipe.imageUrl)
-                                        .padding(.leading, 8)
+                                    AsyncImage(url: URL(string: recipe.imageUrl)) { image in
+                                        image
+                                            .resizable()
+                                            .frame(width: 100, height: 84)
+                                            .aspectRatio(contentMode: .fit)
+                                            .cornerRadius(16)
+                                    } placeholder: {
+                                        ProgressView()
+                                            .frame(width: 50, height: 50)
+                                    }
                                     Text(recipe.title)
                                         .font(.system(size: 16))
                                         .bold()
@@ -76,6 +85,9 @@ struct HomeView: View {
                                     }
                                     .padding(.trailing, 16)
                                 }
+                                .onTapGesture {
+                                    selectedRecipe = recipe
+                                }
                             }
                         }
                     }
@@ -86,7 +98,12 @@ struct HomeView: View {
         .padding(.horizontal, 24)
         .onAppear {
             mealTypes = service.getListMealType()
-            recipes = service.searchRecipes()
+            Task {
+                recipes = await service.searchRecipes()
+            }
+        }
+        .sheet(item: $selectedRecipe) { item in
+            RecipeDetailView(recipe: item)
         }
     }
 }
