@@ -10,7 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     @State var query = ""
-    var types = ["Breakfast", "Lunch", "Dinner", "Bread", "Soup"]
+    @State var mealTypes = [String]()
+    
+    var service = DataService()
     
     var body: some View {
         VStack {
@@ -30,12 +32,12 @@ struct HomeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(types, id: \.self) { type in
+                    ForEach(mealTypes, id: \.self) { type in
                         ZStack {
                             RoundedRectangle(cornerRadius: 40)
                                 .foregroundColor(Color(red: 112/255, green: 185/255, blue: 190/255))
                                 .frame(height: 44)
-                            Text(type)
+                            Text(type.capitalized)
                                 .foregroundStyle(.white)
                                 .padding(.horizontal, 24)
                                 .bold()
@@ -44,6 +46,9 @@ struct HomeView: View {
                 }
             }
             .padding(.top, 16)
+            .onAppear {
+                mealTypes = service.getListMealType()
+            }
         }
         .padding(.horizontal, 24)
     }

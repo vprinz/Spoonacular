@@ -11,6 +11,8 @@
 		1B47C8BA2C563B39004AB837 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8B92C563B39004AB837 /* HomeView.swift */; };
 		1B47C8BC2C563B3B004AB837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B47C8BB2C563B3B004AB837 /* Assets.xcassets */; };
 		1B47C8BF2C563B3B004AB837 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B47C8BE2C563B3B004AB837 /* Preview Assets.xcassets */; };
+		1B47C8C62C565C45004AB837 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8C52C565C45004AB837 /* DataService.swift */; };
+		1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8C72C565C55004AB837 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		1B47C8B92C563B39004AB837 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1B47C8BB2C563B3B004AB837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B47C8BE2C563B3B004AB837 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1B47C8C52C565C45004AB837 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		1B47C8C72C565C55004AB837 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				1B47C8B72C563B39004AB837 /* SpoonacularApp.swift */,
 				1B47C8B92C563B39004AB837 /* HomeView.swift */,
+				1B47C8C52C565C45004AB837 /* DataService.swift */,
+				1B47C8C72C565C55004AB837 /* DataModel.swift */,
 				1B47C8BB2C563B3B004AB837 /* Assets.xcassets */,
 				1B47C8BD2C563B3B004AB837 /* Preview Content */,
 			);
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B47C8C62C565C45004AB837 /* DataService.swift in Sources */,
+				1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */,
 				1B47C8BA2C563B39004AB837 /* HomeView.swift in Sources */,
 				1B47C8B82C563B39004AB837 /* SpoonacularApp.swift in Sources */,
 			);
