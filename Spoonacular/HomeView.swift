@@ -9,18 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @Environment(RecipeModel.self) var recipeModel
+    
     @State var query = ""
     @State var mealTypes = [String]()
     @State var selectedType = "main course"
-    @State var recipes = [Recipe]()
-    @State var selectedRecipe: Recipe?
-    
+
     let selectedBtnColor = Color(red: 112/255, green: 185/255, blue: 190/255)
     let unselectedBtnColor = Color(red: 241/255, green: 245/255, blue: 245/255)
     
-    var service = DataService()
-    
     var body: some View {
+        
+        @Bindable var bindableRecipeModel = recipeModel
+        
         VStack {
             
             HStack {
@@ -30,9 +31,7 @@ struct HomeView: View {
                     .font(.system(size: 16))
                     .foregroundColor(Color(red: 151/255, green: 162/255, blue: 176/255))
                     .onSubmit {
-                        Task {
-                            recipes = await service.searchRecipes(query: query, type: selectedType)
-                        }
+                        recipeModel.getRecipes(query: query, type: selectedType)
                     }
             }
             .frame(height: 54)
@@ -46,9 +45,7 @@ struct HomeView: View {
                     ForEach(mealTypes, id: \.self) { type in
                         Button {
                             selectedType = type
-                            Task {
-                                recipes = await service.searchRecipes(query: query, type: selectedType)
-                            }
+                            recipeModel.getRecipes(query: query, type: selectedType)
                         } label: {
                             ZStack {
                                 let color = selectedType == type ? selectedBtnColor : unselectedBtnColor
@@ -73,7 +70,7 @@ struct HomeView: View {
                     .bold()
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        ForEach(recipes) { recipe in
+                        ForEach(recipeModel.recipes) { recipe in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 16)
                                     .frame(height: 100)
@@ -104,7 +101,7 @@ struct HomeView: View {
                                     .padding(.trailing, 16)
                                 }
                                 .onTapGesture {
-                                    selectedRecipe = recipe
+                                    recipeModel.selectedRecipe = recipe
                                 }
                             }
                         }
@@ -115,12 +112,10 @@ struct HomeView: View {
         }
         .padding(.horizontal, 24)
         .onAppear {
-            mealTypes = service.getListMealType()
-            Task {
-                recipes = await service.searchRecipes(query: nil, type: nil)
-            }
+            mealTypes = recipeModel.service.getListMealType()
+            recipeModel.getRecipes(query: nil, type: nil)
         }
-        .sheet(item: $selectedRecipe) { item in
+        .sheet(item: $bindableRecipeModel.selectedRecipe) { item in
             RecipeDetailView(recipe: item)
         }
     }
@@ -128,4 +123,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environment(RecipeModel())
 }

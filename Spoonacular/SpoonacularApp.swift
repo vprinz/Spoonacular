@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct SpoonacularApp: App {
+    
+    @State var recipeModel = RecipeModel()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(recipeModel)
         }
     }
 }
