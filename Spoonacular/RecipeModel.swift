@@ -25,7 +25,7 @@ class RecipeModel {
     
     func loadRecipeInformation() {
         Task {
-            recipeInformation = await service.getRecipeInformation(id: selectedRecipe?.id ?? 75222)
+            recipeInformation = await service.getRecipeInformation(id: selectedRecipe?.id ?? 715415)
         }
     }
 }

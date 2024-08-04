@@ -12,6 +12,7 @@ struct RecipeDetailView: View {
     @Environment(RecipeModel.self) var recipeModel
     
     var pageColor = Color(red: 116/255, green: 129/255, blue: 137/255)
+    let nutrientList = ["Carbohydrates", "Protein", "Calories", "Fat"]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -31,18 +32,14 @@ struct RecipeDetailView: View {
                 .foregroundStyle(pageColor)
                 .padding(.top, 6)
             
-            HStack(spacing: 0) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 8)
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(Color(red: 230/255, green: 235/255, blue: 242/255))
-                    Image(systemName: "leaf.fill")
+            LazyVGrid(columns: [GridItem(alignment: .leading), GridItem(alignment: .leading)], spacing: 16) {
+                ForEach(nutrientList, id: \.self) { nutrientName in
+                    HStack(spacing: 0) {
+                        NutrientsCardView(nutrientName: nutrientName)
+                    }
                 }
-                Text("65g carbs")
-                    .padding(.leading, 12)
             }
             .padding(.top, 16)
-            
         }
         .padding()
         .onAppear {

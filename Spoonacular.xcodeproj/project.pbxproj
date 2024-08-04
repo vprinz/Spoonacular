@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B0C39092C5F89E60093B1A4 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C39082C5F89E60093B1A4 /* Extension.swift */; };
+		1B0C390D2C5F92C90093B1A4 /* NutrientsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0C390C2C5F92C90093B1A4 /* NutrientsCardView.swift */; };
 		1B47C8B82C563B39004AB837 /* SpoonacularApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8B72C563B39004AB837 /* SpoonacularApp.swift */; };
 		1B47C8BA2C563B39004AB837 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8B92C563B39004AB837 /* HomeView.swift */; };
 		1B47C8BC2C563B3B004AB837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B47C8BB2C563B3B004AB837 /* Assets.xcassets */; };
@@ -16,11 +17,11 @@
 		1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8C72C565C55004AB837 /* DataModel.swift */; };
 		1B47C8CC2C57BD03004AB837 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */; };
 		1B47C8CE2C57F53F004AB837 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8CD2C57F53F004AB837 /* RecipeModel.swift */; };
-		1B47C8D22C5808DC004AB837 /* NutrientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B47C8D12C5808DC004AB837 /* NutrientCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1B0C39082C5F89E60093B1A4 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		1B0C390C2C5F92C90093B1A4 /* NutrientsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsCardView.swift; sourceTree = "<group>"; };
 		1B47C8B42C563B39004AB837 /* Spoonacular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spoonacular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B47C8B72C563B39004AB837 /* SpoonacularApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularApp.swift; sourceTree = "<group>"; };
 		1B47C8B92C563B39004AB837 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		1B47C8CA2C57AC34004AB837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		1B47C8CD2C57F53F004AB837 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
-		1B47C8D12C5808DC004AB837 /* NutrientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,13 +70,13 @@
 				1B47C8B92C563B39004AB837 /* HomeView.swift */,
 				1B0C39082C5F89E60093B1A4 /* Extension.swift */,
 				1B47C8CB2C57BD03004AB837 /* RecipeDetailView.swift */,
-				1B47C8D12C5808DC004AB837 /* NutrientCardView.swift */,
 				1B47C8CD2C57F53F004AB837 /* RecipeModel.swift */,
 				1B47C8C52C565C45004AB837 /* DataService.swift */,
 				1B47C8C72C565C55004AB837 /* DataModel.swift */,
 				1B47C8C92C57ABFB004AB837 /* Config.xcconfig */,
 				1B47C8BB2C563B3B004AB837 /* Assets.xcassets */,
 				1B47C8BD2C563B3B004AB837 /* Preview Content */,
+				1B0C390C2C5F92C90093B1A4 /* NutrientsCardView.swift */,
 			);
 			path = Spoonacular;
 			sourceTree = "<group>";
@@ -162,9 +162,9 @@
 				1B47C8C62C565C45004AB837 /* DataService.swift in Sources */,
 				1B47C8CC2C57BD03004AB837 /* RecipeDetailView.swift in Sources */,
 				1B47C8C82C565C55004AB837 /* DataModel.swift in Sources */,
+				1B0C390D2C5F92C90093B1A4 /* NutrientsCardView.swift in Sources */,
 				1B47C8BA2C563B39004AB837 /* HomeView.swift in Sources */,
 				1B47C8B82C563B39004AB837 /* SpoonacularApp.swift in Sources */,
-				1B47C8D22C5808DC004AB837 /* NutrientCardView.swift in Sources */,
 				1B47C8CE2C57F53F004AB837 /* RecipeModel.swift in Sources */,
 				1B0C39092C5F89E60093B1A4 /* Extension.swift in Sources */,
 			);
