@@ -26,7 +26,8 @@ struct RecipeDetailView: View {
             }
             .foregroundStyle(pageColor)
             
-            Text(recipeModel.recipeInformation?.summary ?? "This Healthy Taco Salad is the universal delight of taco night View More")
+            Text(recipeModel.recipeInformation?.summary.htmlToString() ?? "This Healthy Taco Salad is the universal delight of taco night")
+                .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 .foregroundStyle(pageColor)
                 .padding(.top, 6)
             
