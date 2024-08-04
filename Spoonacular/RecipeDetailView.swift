@@ -23,7 +23,7 @@ struct RecipeDetailView: View {
                     .foregroundStyle(.black)
                 Spacer()
                 Image(systemName: "clock")
-                Text("\(recipeModel.recipeInformation?.readyInMinutes ?? 55) Min")
+                Text("\(recipeModel.recipeInformation?.readyInMinutes ?? 0) Min")
             }
             .foregroundStyle(pageColor)
             
