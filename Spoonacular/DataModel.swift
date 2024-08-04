@@ -43,6 +43,7 @@ struct RecipeInformation: Identifiable, Decodable {
 struct Ingredient: Identifiable, Decodable {
     let id: Int
     let name: String
+    let image: String
 }
 
 

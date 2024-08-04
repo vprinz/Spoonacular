@@ -15,22 +15,29 @@ struct RecipeDetailView: View {
     let nutrientList = ["Carbohydrates", "Protein", "Calories", "Fat"]
     
     var body: some View {
+        let recipeInformation = recipeModel.recipeInformation ?? nil
+        
         VStack(alignment: .leading, spacing: 0) {
+            
+            // Main information
+            
             HStack {
-                Text(recipeModel.recipeInformation?.title ?? "Health Taco Salad")
+                Text(recipeInformation?.title ?? "Health Taco Salad")
                     .font(.title)
                     .bold()
                     .foregroundStyle(.black)
                 Spacer()
                 Image(systemName: "clock")
-                Text("\(recipeModel.recipeInformation?.readyInMinutes ?? 0) Min")
+                Text("\(recipeInformation?.readyInMinutes ?? 0) Min")
             }
             .foregroundStyle(pageColor)
             
-            Text(recipeModel.recipeInformation?.summary.htmlToString() ?? "This Healthy Taco Salad is the universal delight of taco night")
+            Text(recipeInformation?.summary.htmlToString() ?? "This Healthy Taco Salad is the universal delight of taco night")
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 .foregroundStyle(pageColor)
                 .padding(.top, 6)
+            
+            // Nutrients information
             
             LazyVGrid(columns: [GridItem(alignment: .leading), GridItem(alignment: .leading)], spacing: 16) {
                 ForEach(nutrientList, id: \.self) { nutrientName in
@@ -40,6 +47,65 @@ struct RecipeDetailView: View {
                 }
             }
             .padding(.top, 16)
+            
+            // Ingredients information
+            
+            Text("Ingredients")
+                .font(.system(size: 20))
+                .bold()
+                .padding(.top, 24)
+            
+            Text("\(recipeInformation?.extendedIngredients.count ?? 0) Items")
+                .font(.system(size: 16))
+                .foregroundStyle(pageColor)
+                .padding(.top, 2)
+            
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    ForEach(recipeInformation?.extendedIngredients ?? []) { ingredient in
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 16)
+                                .frame(height: 80)
+                                .foregroundColor(Color(red: 251/255, green: 251/255, blue: 251/255))
+                            HStack {
+                                let url = "https://img.spoonacular.com/ingredients_100x100/\(ingredient.image)"
+                                AsyncImage(url: URL(string: url)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 48, height: 48)
+                                        .cornerRadius(16)
+                                } placeholder: {
+                                    ProgressView()
+                                        .frame(width: 50, height: 50)
+                                }
+                                .padding(.leading, 16)
+                                Text(ingredient.name.capitalized)
+                                    .font(.system(size: 18))
+                                    .bold()
+                                    .padding(.leading, 16)
+                                Spacer()
+                            }
+                        }
+                    }
+                }
+            }
+            .padding(.top, 12)
+            
+            Button {
+                // Add to cart
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(height: 54)
+                        .foregroundStyle(Color(red: 112/255, green: 185/255, blue: 190/255))
+                    Text("Add To Cart")
+                        .foregroundStyle(.white)
+                        .font(.system(size: 16))
+                        .bold()
+                }
+            }
+            
         }
         .padding()
         .onAppear {
